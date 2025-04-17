@@ -17,7 +17,7 @@ public class ShoppingCartService {
     		for (Product p: products) {
     			Bigdecimal ppu = p.getPricePerUnit();
     			int q = p.getQuantity();
-    			res.add(new BigDecimal(ppu.multiply(q)));
+    			res.add(ppu.multiply(q));
     		
     			
     		}
@@ -36,9 +36,9 @@ public class ShoppingCartService {
     			Bigdecimal ppu = p.getPricePerUnit();
     			int q = p.getQuantity();
     			if (q > ITEMS_NEEDED) {
-    				res.add(ppu.multiply(new  BigDecimal(q)).multiply(new BigDecimal((100.0 - DISCOUNT)/ 10));
+    				res.add(ppu.multiply(q).multiply((100.0 - DISCOUNT)/ 10);
     			} else {
-    				res.add(new BigDecimal(ppu.multiply(q)));
+    				res.add(ppu.multiply(q));
     			}
     		}
     	}
@@ -61,9 +61,9 @@ public class ShoppingCartService {
     			Bigdecimal ppu = p.getPricePerUnit();
     			int q = p.getQuantity();
     			if (map.get(p.getCategory())  > ITEMS_NEEDED) {
-    				res.add(ppu.multiply(new BigDecimal(q)).multiply(new BigDecimal(100.0 - DISCOUNT)/ 10)));
+    				res.add(ppu.multiply(q).multiply(100.0 - DISCOUNT)/ 10));
     			} else {
-    				res.add(new BigDecimal(ppu.multiply(new BigDecimal(q))));
+    				res.add(ppu.multiply(q));
     			}
     		}
     	}
